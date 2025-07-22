@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wagad Tourist Places - बांसवाड़ा और डूंगरपुर</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <h1 class="main-title">
+                <i class="fas fa-mountain"></i>
+                Wagad Tourist Places
+            </h1>
+            <p class="subtitle">राजस्थान के खूबसूरत पर्यटन स्थल</p>
+        </div>
+    </header>
+
+    <!-- Navigation Section -->
+    <nav class="nav-section">
+        <div class="container">
+            <div class="district-buttons">
+                <button class="district-btn active" id="banswara-btn" data-district="banswara">
+                    <i class="fas fa-water"></i>
+                    <span>Banswara</span>
+                    <small>बांसवाड़ा</small>
+                </button>
+                <button class="district-btn" id="dungarpur-btn" data-district="dungarpur">
+                    <i class="fas fa-fort-awesome"></i>
+                    <span>Dungarpur</span>
+                    <small>डूंगरपुर</small>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Map Section -->
+    <section class="map-section" id="map-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span id="selected-district-name">Banswara</span> District Map
+            </h2>
+            <div class="map-container">
+                <iframe id="district-map" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116234.84842806328!2d74.35825!3d23.5411!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3968d4c0b0b0b0b0%3A0x0!2sBanswara%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1234567890"
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tourist Places Section -->
+    <section class="places-section" id="places-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span id="places-district-name">Banswara</span> के पर्यटन स्थल
+            </h2>
+            
+            <!-- Banswara Places -->
+            <div class="places-grid" id="banswara-places">
+                <div class="place-card" data-place="anand-sagar-lake">
+                    <div class="place-image">
+                        <img src="images/anand-sagar-lake.jpg" alt="Anand Sagar Lake" loading="lazy">
+                        <div class="place-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="place-content">
+                        <h3 class="place-title">Anand Sagar Lake</h3>
+                        <p class="place-subtitle">आनंद सागर झील</p>
+                        <p class="place-description">
+                            A beautiful artificial lake surrounded by lush greenery and small islands, perfect for boating and peaceful moments.
+                        </p>
+                        <div class="place-features">
+                            <span class="feature-tag"><i class="fas fa-water"></i> Lake</span>
+                            <span class="feature-tag"><i class="fas fa-ship"></i> Boating</span>
+                        </div>
+                        <button class="explore-btn" onclick="openDetailPage('anand-sagar-lake')">
+                            <span>Explore More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="place-card" data-place="mahi-dam">
+                    <div class="place-image">
+                        <img src="images/mahi-dam.jpg" alt="Mahi Dam" loading="lazy">
+                        <div class="place-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="place-content">
+                        <h3 class="place-title">Mahi Dam</h3>
+                        <p class="place-subtitle">माही बांध</p>
+                        <p class="place-description">
+                            One of the largest dams in Rajasthan, offering spectacular views and water sports activities.
+                        </p>
+                        <div class="place-features">
+                            <span class="feature-tag"><i class="fas fa-tint"></i> Dam</span>
+                            <span class="feature-tag"><i class="fas fa-camera"></i> Photography</span>
+                        </div>
+                        <button class="explore-btn" onclick="openDetailPage('mahi-dam')">
+                            <span>Explore More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="place-card" data-place="tripura-sundari-temple">
+                    <div class="place-image">
+                        <img src="images/tripura-sundari-temple.jpg" alt="Shree Tripura Sundari Temple" loading="lazy">
+                        <div class="place-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="place-content">
+                        <h3 class="place-title">Shree Tripura Sundari Temple</h3>
+                        <p class="place-subtitle">श्री त्रिपुरा सुंदरी मंदिर</p>
+                        <p class="place-description">
+                            A sacred temple dedicated to Goddess Tripura Sundari, known for its spiritual significance and beautiful architecture.
+                        </p>
+                        <div class="place-features">
+                            <span class="feature-tag"><i class="fas fa-pray"></i> Temple</span>
+                            <span class="feature-tag"><i class="fas fa-star"></i> Spiritual</span>
+                        </div>
+                        <button class="explore-btn" onclick="openDetailPage('tripura-sundari-temple')">
+                            <span>Explore More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="place-card" data-place="kagdi-pickup-weir">
+                    <div class="place-image">
+                        <img src="images/kagdi-pickup-weir.jpg" alt="Kagdi Pick Up Weir" loading="lazy">
+                        <div class="place-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="place-content">
+                        <h3 class="place-title">Kagdi Pick Up Weir</h3>
+                        <p class="place-subtitle">कागदी पिकअप वियर</p>
+                        <p class="place-description">
+                            A popular spot for adventure activities like zip-lining and boating, surrounded by scenic beauty.
+                        </p>
+                        <div class="place-features">
+                            <span class="feature-tag"><i class="fas fa-mountain"></i> Adventure</span>
+                            <span class="feature-tag"><i class="fas fa-ship"></i> Boating</span>
+                        </div>
+                        <button class="explore-btn" onclick="openDetailPage('kagdi-pickup-weir')">
+                            <span>Explore More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="place-card" data-place="madareshwar-temple">
+                    <div class="place-image">
+                        <img src="images/madareshwar-temple.jpg" alt="Madareshwar Shiva Temple" loading="lazy">
+                        <div class="place-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="place-content">
+                        <h3 class="place-title">Madareshwar Shiva Temple</h3>
+                        <p class="place-subtitle">मदारेश्वर शिव मंदिर</p>
+                        <p class="place-description">
+                            An ancient temple dedicated to Lord Shiva, located in a cave with natural rock formations.
+                        </p>
+                        <div class="place-features">
+                            <span class="feature-tag"><i class="fas fa-pray"></i> Temple</span>
+                            <span class="feature-tag"><i class="fas fa-mountain"></i> Cave</span>
+                        </div>
+                        <button class="explore-btn" onclick="openDetailPage('madareshwar-temple')">
+                            <span>Explore More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="place-card" data-place="ram-kund">
+                    <div class="place-image">
+                        <img src="images/ram-kund.jpg" alt="Ram Kund" loading="lazy">
+                        <div class="place-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="place-content">
+                        <h3 class="place-title">Ram Kund</h3>
+                        <p class="place-subtitle">राम कुंड</p>
+                        <p class="place-description">
+                            A sacred water tank with religious significance, surrounded by peaceful environment.
+                        </p>
+                        <div class="place-features">
+                            <span class="feature-tag"><i class="fas fa-water"></i> Kund</span>
+                            <span class="feature-tag"><i class="fas fa-pray"></i> Religious</span>
+                        </div>
+                        <button class="explore-btn" onclick="openDetailPage('ram-kund')">
+                            <span>Explore More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dungarpur Places -->
+            <div class="places-grid hidden" id="dungarpur-places">
+                <div class="place-card" data-place="udai-bilas-palace">
+                    <div class="place-image">
+                        <img src="images/udai-bilas-palace.jpg" alt="Udai Bilas Palace" loading="lazy">
+                        <div class="place-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="place-content">
+                        <h3 class="place-title">Udai Bilas Palace</h3>
+                        <p class="place-subtitle">उदै बिलास पैलेस</p>
+                        <p class="place-description">
+                            A magnificent palace showcasing Rajput architecture, now converted into a heritage hotel.
+                        </p>
+                        <div class="place-features">
+                            <span class="feature-tag"><i class="fas fa-crown"></i> Palace</span>
+                            <span class="feature-tag"><i class="fas fa-building"></i> Heritage</span>
+                        </div>
+                        <button class="explore-btn" onclick="openDetailPage('udai-bilas-palace')">
+                            <span>Explore More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="place-card" data-place="juna-mahal">
+                    <div class="place-image">
+                        <img src="images/juna-mahal.jpg" alt="Juna Mahal" loading="lazy">
+                        <div class="place-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="place-content">
+                        <h3 class="place-title">Juna Mahal</h3>
+                        <p class="place-subtitle">जूना महल</p>
+                        <p class="place-description">
+                            A 13th-century seven-storied palace adorned with miniature paintings and mirror work.
+                        </p>
+                        <div class="place-features">
+                            <span class="feature-tag"><i class="fas fa-fort-awesome"></i> Fort</span>
+                            <span class="feature-tag"><i class="fas fa-palette"></i> Art</span>
+                        </div>
+                        <button class="explore-btn" onclick="openDetailPage('juna-mahal')">
+                            <span>Explore More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="place-card" data-place="gaib-sagar-lake">
+                    <div class="place-image">
+                        <img src="images/gaib-sagar-lake.jpg" alt="Gaib Sagar Lake" loading="lazy">
+                        <div class="place-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="place-content">
+                        <h3 class="place-title">Gaib Sagar Lake</h3>
+                        <p class="place-subtitle">गैब सागर झील</p>
+                        <p class="place-description">
+                            A serene lake with beautiful palaces and temples on its banks, perfect for photography.
+                        </p>
+                        <div class="place-features">
+                            <span class="feature-tag"><i class="fas fa-water"></i> Lake</span>
+                            <span class="feature-tag"><i class="fas fa-camera"></i> Photography</span>
+                        </div>
+                        <button class="explore-btn" onclick="openDetailPage('gaib-sagar-lake')">
+                            <span>Explore More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="place-card" data-place="badal-mahal">
+                    <div class="place-image">
+                        <img src="images/badal-mahal.jpg" alt="Badal Mahal" loading="lazy">
+                        <div class="place-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="place-content">
+                        <h3 class="place-title">Badal Mahal</h3>
+                        <p class="place-subtitle">बादल महल</p>
+                        <p class="place-description">
+                            A beautiful palace known for its unique architecture and scenic location by the lake.
+                        </p>
+                        <div class="place-features">
+                            <span class="feature-tag"><i class="fas fa-crown"></i> Palace</span>
+                            <span class="feature-tag"><i class="fas fa-eye"></i> Scenic</span>
+                        </div>
+                        <button class="explore-btn" onclick="openDetailPage('badal-mahal')">
+                            <span>Explore More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="place-card" data-place="deo-somnath-temple">
+                    <div class="place-image">
+                        <img src="images/deo-somnath-temple.jpg" alt="Deo Somnath Temple" loading="lazy">
+                        <div class="place-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="place-content">
+                        <h3 class="place-title">Deo Somnath Temple</h3>
+                        <p class="place-subtitle">देव सोमनाथ मंदिर</p>
+                        <p class="place-description">
+                            An ancient temple dedicated to Lord Shiva, located on the banks of Som river.
+                        </p>
+                        <div class="place-features">
+                            <span class="feature-tag"><i class="fas fa-pray"></i> Temple</span>
+                            <span class="feature-tag"><i class="fas fa-water"></i> Riverside</span>
+                        </div>
+                        <button class="explore-btn" onclick="openDetailPage('deo-somnath-temple')">
+                            <span>Explore More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="place-card" data-place="baneshwar-temple">
+                    <div class="place-image">
+                        <img src="images/baneshwar-temple.jpg" alt="Baneshwar Temple" loading="lazy">
+                        <div class="place-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="place-content">
+                        <h3 class="place-title">Baneshwar Temple</h3>
+                        <p class="place-subtitle">बाणेश्वर मंदिर</p>
+                        <p class="place-description">
+                            A sacred temple complex known for the famous Baneshwar Fair and tribal culture.
+                        </p>
+                        <div class="place-features">
+                            <span class="feature-tag"><i class="fas fa-pray"></i> Temple</span>
+                            <span class="feature-tag"><i class="fas fa-users"></i> Cultural</span>
+                        </div>
+                        <button class="explore-btn" onclick="openDetailPage('baneshwar-temple')">
+                            <span>Explore More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Wagad Tourism</h3>
+                    <p>Discover the hidden gems of Banswara and Dungarpur districts in Rajasthan.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#banswara-places">Banswara Places</a></li>
+                        <li><a href="#dungarpur-places">Dungarpur Places</a></li>
+                        <li><a href="#map-section">District Maps</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-envelope"></i> info@wagadtourism.com</p>
+                    <p><i class="fas fa-phone"></i> +91 12345 67890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Wagad Tourism. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

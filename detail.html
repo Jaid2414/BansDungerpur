@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Tourist Place Details - Wagad Tourism</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="detail-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="detail-header">
+        <div class="container">
+            <nav class="detail-nav">
+                <a href="index.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back to Home</span>
+                </a>
+                <h1 class="site-title">
+                    <i class="fas fa-mountain"></i>
+                    Wagad Tourism
+                </h1>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="detail-hero" id="detail-hero">
+        <div class="hero-image">
+            <img id="hero-img" src="" alt="" loading="lazy">
+            <div class="hero-overlay">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1 id="place-title" class="hero-title"></h1>
+                        <p id="place-subtitle" class="hero-subtitle"></p>
+                        <div class="hero-meta">
+                            <span class="meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span id="place-location"></span>
+                            </span>
+                            <span class="meta-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span id="best-time"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Details Section -->
+    <section class="place-details">
+        <div class="container">
+            <div class="details-grid">
+                <!-- Main Content -->
+                <div class="main-content">
+                    <div class="content-card">
+                        <h2 class="section-heading">
+                            <i class="fas fa-info-circle"></i>
+                            About This Place
+                        </h2>
+                        <p id="place-description" class="description-text"></p>
+                    </div>
+
+                    <div class="content-card">
+                        <h2 class="section-heading">
+                            <i class="fas fa-star"></i>
+                            Key Features
+                        </h2>
+                        <div id="place-features" class="features-grid"></div>
+                    </div>
+
+                    <div class="content-card">
+                        <h2 class="section-heading">
+                            <i class="fas fa-images"></i>
+                            Photo Gallery
+                        </h2>
+                        <div class="gallery-grid" id="photo-gallery">
+                            <!-- Photos will be loaded dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <div class="info-card">
+                        <h3 class="card-title">
+                            <i class="fas fa-clock"></i>
+                            Visiting Information
+                        </h3>
+                        <div class="info-item">
+                            <span class="info-label">Timings:</span>
+                            <span id="place-timings" class="info-value"></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Entry Fee:</span>
+                            <span id="entry-fee" class="info-value"></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Best Time:</span>
+                            <span id="best-time-detail" class="info-value"></span>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <h3 class="card-title">
+                            <i class="fas fa-map"></i>
+                            Location Map
+                        </h3>
+                        <div class="map-container-small">
+                            <iframe id="place-map" 
+                                    src=""
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <h3 class="card-title">
+                            <i class="fas fa-lightbulb"></i>
+                            Travel Tips
+                        </h3>
+                        <ul id="travel-tips" class="tips-list">
+                            <!-- Tips will be loaded dynamically -->
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3 class="card-title">
+                            <i class="fas fa-share-alt"></i>
+                            Share This Place
+                        </h3>
+                        <div class="share-buttons">
+                            <button class="share-btn facebook" onclick="shareOnFacebook()">
+                                <i class="fab fa-facebook-f"></i>
+                            </button>
+                            <button class="share-btn twitter" onclick="shareOnTwitter()">
+                                <i class="fab fa-twitter"></i>
+                            </button>
+                            <button class="share-btn whatsapp" onclick="shareOnWhatsApp()">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="share-btn copy" onclick="copyLink()">
+                                <i class="fas fa-link"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Places Section -->
+    <section class="related-places">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-compass"></i>
+                Explore More Places
+            </h2>
+            <div class="related-grid" id="related-places-grid">
+                <!-- Related places will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Wagad Tourism</h3>
+                    <p>Discover the hidden gems of Banswara and Dungarpur districts in Rajasthan.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#banswara-places">Banswara Places</a></li>
+                        <li><a href="index.html#dungarpur-places">Dungarpur Places</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-envelope"></i> info@wagadtourism.com</p>
+                    <p><i class="fas fa-phone"></i> +91 12345 67890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Wagad Tourism. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Loading place details...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="detail-script.js"></script>
+</body>
+</html>
+
