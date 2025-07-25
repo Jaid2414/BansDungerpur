@@ -104,13 +104,8 @@ function loadFeatures(features) {
 function loadPhotoGallery(placeId) {
     const galleryContainer = document.getElementById('photo-gallery');
     
-    // Sample gallery images (in a real application, these would come from a database)
-    const galleryImages = [
-        { src: getPlaceImage(placeId), alt: 'Main view' },
-        { src: 'https://via.placeholder.com/300x200/667eea/ffffff?text=Gallery+Image+1', alt: 'Gallery Image 1' },
-        { src: 'https://via.placeholder.com/300x200/764ba2/ffffff?text=Gallery+Image+2', alt: 'Gallery Image 2' },
-        { src: 'https://via.placeholder.com/300x200/ff6b6b/ffffff?text=Gallery+Image+3', alt: 'Gallery Image 3' }
-    ];
+    // Get 6 images for each place
+    const galleryImages = getPlaceGalleryImages(placeId);
     
     galleryContainer.innerHTML = '';
     
@@ -131,6 +126,117 @@ function loadPhotoGallery(placeId) {
         
         galleryContainer.appendChild(galleryItem);
     });
+}
+
+// Function to get 6 gallery images for each place
+function getPlaceGalleryImages(placeId) {
+    const galleryMap = {
+        'anand-sagar-lake': [
+            { src: 'images/anand-sagar-lake.jpg', alt: 'Anand Sagar Lake Main View' },
+            { src: 'images/anand-sagar-lake-2.jpg', alt: 'Lake with Islands' },
+            { src: 'images/anand-sagar-lake-3.jpg', alt: 'Boating Area' },
+            { src: 'images/anand-sagar-lake-4.jpg', alt: 'Scenic Lake View' },
+            { src: 'images/anand-sagar-lake-5.jpg', alt: 'Lake Surroundings' },
+            { src: 'images/anand-sagar-lake-6.jpg', alt: 'Evening View' }
+        ],
+        'mahi-dam': [
+            { src: 'images/mahi-dam.jpg', alt: 'Mahi Dam Main Structure' },
+            { src: 'images/mahi-dam-2.jpg', alt: 'Dam Water Release' },
+            { src: 'images/mahi-dam-3.jpg', alt: 'Aerial View' },
+            { src: 'images/mahi-dam-4.jpg', alt: 'Dam Reservoir' },
+            { src: 'images/mahi-dam-5.jpg', alt: 'Gates Opening' },
+            { src: 'images/mahi-dam-6.jpg', alt: 'Full Dam View' }
+        ],
+        'tripura-sundari-temple': [
+            { src: 'images/tripura-sundari-temple.jpg', alt: 'Temple Main Entrance' },
+            { src: 'images/tripura-sundari-temple-2.jpg', alt: 'Temple Architecture' },
+            { src: 'images/tripura-sundari-temple-3.jpg', alt: 'Temple Complex' },
+            { src: 'images/tripura-sundari-temple-4.jpg', alt: 'Goddess Idol' },
+            { src: 'images/tripura-sundari-temple-5.jpg', alt: 'Temple Interior' },
+            { src: 'images/tripura-sundari-temple-6.jpg', alt: 'Temple Courtyard' }
+        ],
+        'kagdi-pickup-weir': [
+            { src: 'images/kagdi-pickup-weir.jpg', alt: 'Kagdi Pick Up Weir' },
+            { src: 'images/kagdi-pickup-weir-2.jpg', alt: 'Adventure Activities' },
+            { src: 'images/kagdi-pickup-weir-3.jpg', alt: 'Water Sports Area' },
+            { src: 'images/kagdi-pickup-weir-4.jpg', alt: 'Scenic Beauty' },
+            { src: 'images/kagdi-pickup-weir-5.jpg', alt: 'Zip Line Activity' },
+            { src: 'images/kagdi-pickup-weir-6.jpg', alt: 'River View' }
+        ],
+        'madareshwar-temple': [
+            { src: 'images/madareshwar-temple.jpg', alt: 'Cave Temple Entrance' },
+            { src: 'images/madareshwar-temple-2.jpg', alt: 'Temple Interior' },
+            { src: 'images/madareshwar-temple-3.jpg', alt: 'Shiva Lingam' },
+            { src: 'images/madareshwar-temple-4.jpg', alt: 'Cave Formation' },
+            { src: 'images/madareshwar-temple-5.jpg', alt: 'Natural Rock Structure' },
+            { src: 'images/madareshwar-temple-6.jpg', alt: 'Temple Complex' }
+        ],
+        'ram-kund': [
+            { src: 'images/ram-kund.jpg', alt: 'Ram Kund Main View' },
+            { src: 'images/ram-kund-2.jpg', alt: 'Steps to Kund' },
+            { src: 'images/ram-kund-3.jpg', alt: 'Sacred Water Tank' },
+            { src: 'images/ram-kund-4.jpg', alt: 'Cave Entrance' },
+            { src: 'images/ram-kund-5.jpg', alt: 'Natural Cave' },
+            { src: 'images/ram-kund-6.jpg', alt: 'Adventure Cave' }
+        ],
+        'udai-bilas-palace': [
+            { src: 'images/udai-bilas-palace.jpg', alt: 'Palace Main View' },
+            { src: 'images/udai-bilas-palace-2.jpg', alt: 'Heritage Architecture' },
+            { src: 'images/udai-bilas-palace-3.jpg', alt: 'Palace Interior' },
+            { src: 'images/udai-bilas-palace-4.jpg', alt: 'Royal Rooms' },
+            { src: 'images/udai-bilas-palace-5.jpg', alt: 'Palace Courtyard' },
+            { src: 'images/udai-bilas-palace-6.jpg', alt: 'Lake View from Palace' }
+        ],
+        'juna-mahal': [
+            { src: 'images/juna-mahal.jpg', alt: 'Juna Mahal Exterior' },
+            { src: 'images/juna-mahal-2.jpg', alt: 'Palace Architecture' },
+            { src: 'images/juna-mahal-3.jpg', alt: 'Historical Structure' },
+            { src: 'images/juna-mahal-4.jpg', alt: 'Palace Walls' },
+            { src: 'images/juna-mahal-5.jpg', alt: 'Miniature Paintings' },
+            { src: 'images/juna-mahal-6.jpg', alt: 'Palace Interior' }
+        ],
+        'gaib-sagar-lake': [
+            { src: 'images/gaib-sagar-lake.jpg', alt: 'Gaib Sagar Lake' },
+            { src: 'images/gaib-sagar-lake-2.jpg', alt: 'Lake with Palaces' },
+            { src: 'images/gaib-sagar-lake-3.jpg', alt: 'Scenic Lake View' },
+            { src: 'images/gaib-sagar-lake-4.jpg', alt: 'Lake Surroundings' },
+            { src: 'images/gaib-sagar-lake-5.jpg', alt: 'Boating Area' },
+            { src: 'images/gaib-sagar-lake-6.jpg', alt: 'Evening Lake View' }
+        ],
+        'badal-mahal': [
+            { src: 'images/badal-mahal.jpg', alt: 'Badal Mahal Main View' },
+            { src: 'images/badal-mahal-2.jpg', alt: 'Palace Architecture' },
+            { src: 'images/badal-mahal-3.jpg', alt: 'Historical Palace' },
+            { src: 'images/badal-mahal-4.jpg', alt: 'Palace Structure' },
+            { src: 'images/badal-mahal-5.jpg', alt: 'Palace Exterior' },
+            { src: 'images/badal-mahal-6.jpg', alt: 'Evening Illumination' }
+        ],
+        'deo-somnath-temple': [
+            { src: 'images/deo-somnath-temple.jpg', alt: 'Deo Somnath Temple' },
+            { src: 'images/deo-somnath-temple-2.jpg', alt: 'Temple Architecture' },
+            { src: 'images/deo-somnath-temple-3.jpg', alt: 'Temple Complex' },
+            { src: 'images/deo-somnath-temple-4.jpg', alt: 'Shiva Temple' },
+            { src: 'images/deo-somnath-temple-5.jpg', alt: 'Temple Structure' },
+            { src: 'images/deo-somnath-temple-6.jpg', alt: 'Riverside Temple' }
+        ],
+        'baneshwar-temple': [
+            { src: 'images/baneshwar-temple.jpg', alt: 'Baneshwar Temple' },
+            { src: 'images/baneshwar-temple-2.jpg', alt: 'Temple Complex' },
+            { src: 'images/baneshwar-temple-3.jpg', alt: 'Fair Gathering' },
+            { src: 'images/baneshwar-temple-4.jpg', alt: 'Temple Architecture' },
+            { src: 'images/baneshwar-temple-5.jpg', alt: 'Pilgrimage Site' },
+            { src: 'images/baneshwar-temple-6.jpg', alt: 'Cultural Festival' }
+        ]
+    };
+    
+    return galleryMap[placeId] || [
+        { src: 'https://via.placeholder.com/300x200/667eea/ffffff?text=Image+1', alt: 'Gallery Image 1' },
+        { src: 'https://via.placeholder.com/300x200/764ba2/ffffff?text=Image+2', alt: 'Gallery Image 2' },
+        { src: 'https://via.placeholder.com/300x200/ff6b6b/ffffff?text=Image+3', alt: 'Gallery Image 3' },
+        { src: 'https://via.placeholder.com/300x200/4ecdc4/ffffff?text=Image+4', alt: 'Gallery Image 4' },
+        { src: 'https://via.placeholder.com/300x200/45b7d1/ffffff?text=Image+5', alt: 'Gallery Image 5' },
+        { src: 'https://via.placeholder.com/300x200/f39c12/ffffff?text=Image+6', alt: 'Gallery Image 6' }
+    ];
 }
 
 // Function to load place map
